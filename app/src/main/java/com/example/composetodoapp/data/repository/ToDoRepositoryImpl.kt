@@ -16,7 +16,7 @@ class ToDoRepositoryImpl(
 
     override fun getAllTodos(): Flow<List<ToDoEntity>> = dao.getAllTodos()
 
-    override suspend fun deleteTodoById(toDoEntity: ToDoEntity) {
+    override suspend fun deleteTodo(toDoEntity: ToDoEntity) {
         dao.deleteTodoById(toDoEntity)
     }
 }
