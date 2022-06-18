@@ -47,7 +47,6 @@ fun AllToDoScreen(
             }
         }
     }
-
     Scaffold(
         scaffoldState = scaffoldState,
         floatingActionButton = {
