@@ -63,7 +63,8 @@ class AddEditViewModel @Inject constructor(
                     } else
                         _uiEvents.send(
                             UIEvents.ShowSnackBar(
-                                "Title can't be empty"
+                                "Title can't be empty",
+                                null
                             )
                         )
                 }

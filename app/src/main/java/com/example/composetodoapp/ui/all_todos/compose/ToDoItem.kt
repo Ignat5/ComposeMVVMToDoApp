@@ -34,7 +34,7 @@ fun ToDoItem(
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.Start
         ) {
             Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {

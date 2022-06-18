@@ -8,6 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.composetodoapp.ui.add_edit.AddEditEvents
 import com.example.composetodoapp.ui.add_edit.AddEditViewModel
@@ -37,40 +38,47 @@ fun AddEditScreen(
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 16.dp)
-        ,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top
+    Scaffold(
+        scaffoldState = scaffoldState
     ) {
-        TextField(value = viewModel.title.value, onValueChange = {
-            viewModel.onEvent(
-                AddEditEvents.onTitleChange(it)
-            )
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 8.dp)
-        )
-
-        TextField(value = viewModel.description.value, onValueChange = {
-            viewModel.onEvent(
-                AddEditEvents.onDescriptionChange(it)
-            )
-        },
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
-        )
-
-        Button(onClick = {
-            viewModel.onEvent(
-                AddEditEvents.onConfirmToDoClick
+                .fillMaxSize()
+                .padding(horizontal = 16.dp, vertical = 16.dp)
+            ,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
+        ) {
+            TextField(value = viewModel.title.value, onValueChange = {
+                viewModel.onEvent(
+                    AddEditEvents.onTitleChange(it)
+                )
+            },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
             )
-        }) {
-            Text(text = "save")
+
+            TextField(value = viewModel.description.value, onValueChange = {
+                viewModel.onEvent(
+                    AddEditEvents.onDescriptionChange(it)
+                )
+            },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
+            )
+
+            Button(onClick = {
+                viewModel.onEvent(
+                    AddEditEvents.onConfirmToDoClick
+                )
+            }, modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth()
+            ) {
+                Text(text = "save", fontSize = 24.sp)
+            }
         }
     }
 }
